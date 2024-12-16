@@ -53,7 +53,7 @@ const updateUserPlan = async (req, res) => {
             return res.status(404).json({ message: 'New plan not found.' });
         }
 
-        user.planId = newPlan._id;
+        user.plan = newPlan._id;
         await user.save();
 
         if (user.subscriptionAdmin) {
