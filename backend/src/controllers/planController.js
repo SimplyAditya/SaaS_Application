@@ -42,6 +42,7 @@ const createPlan = async (req, res) => {
         },
       }
     );
+    const stripePriceId = response.data.id;
     const plan = new Plan({
       name,
       price,
@@ -49,6 +50,7 @@ const createPlan = async (req, res) => {
       description,
       daysValidity,
       stripeProductId,
+      stripePriceId,
     });
     await plan.save();
     res.status(201).json({ message: "Plan created successfully", plan });
